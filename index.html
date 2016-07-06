@@ -19,6 +19,21 @@
   			ga('send', 'pageview');
 		</script>
 
+		<script>
+			/**
+			* Function that tracks a click on an outbound link in Analytics.
+			* This function takes a valid URL string as an argument, and uses that URL string
+			* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+			* using 'navigator.sendBeacon' in browser that support it.
+			*/
+			var trackOutboundLink = function(url) {
+			   ga('send', 'event', 'outbound', 'click', url, {
+			     'transport': 'beacon',
+			     'hitCallback': function(){document.location = url;}
+			   });
+			}
+		</script>
+
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="https://use.fontawesome.com/7fabb39050.js"></script>
@@ -91,7 +106,7 @@
 
 						<p align="justify">However, after a co-op working as a software developer, I quickly realized that I didn't like being behind a computer for 8 hours each day. My co-workers and professors recommended I try project management or business analysis. I took a software project management class over the summer and quickly changed my major to information science, effectively starting down the project management route.</p>
 
-						<p align="justify">For my next two co-ops I worked in the project management field starting as an analyst in a project management office and then moving into a project manager role. I am unafraid to role up my sleeves and jump into code, but I love working with people and leading teams to deliver new, innovating, software systems. Now that I have graduated, I am looking to continue on this trajectory, looking for full-time roles in Product Management or Project Management at a tech company. Interested in hearing more? Check out my <a href="assets/ETyler_Resume.pdf" target="_blank">resume</a> or <a href="http://www.linkedin.com/in/ericjtyler" target="_blank">LinkedIn</a> and send me an <a href="mailto:tyler.ericj@gmail.com?subject=Saw your website...">e-mail</a></p>
+						<p align="justify">For my next two co-ops I worked in the project management field starting as an analyst in a project management office and then moving into a project manager role. I am unafraid to role up my sleeves and jump into code, but I love working with people and leading teams to deliver new, innovating, software systems. Now that I have graduated, I am looking to continue on this trajectory, looking for full-time roles in Product Management or Project Management at a tech company. Interested in hearing more? Check out my <a href="assets/ETyler_Resume.pdf" target="_blank" onclick="trackOutboundLink('http://www.ejtyler.com/assets/ETyler_resume.pdf'); return false;">resume</a> or <a href="http://www.linkedin.com/in/ericjtyler" target="_blank" onclick="trackOutboundLink('http://www.linkedin.com'); return false;">LinkedIn</a> and send me an <a href="mailto:tyler.ericj@gmail.com?subject=Saw your website..." onclick="trackOutboundLink('http://www.email.com'); return false;">e-mail</a></p>
 					</div>
 				</div>
 			<div>
@@ -192,16 +207,16 @@
 						<div class="contact-container">
 							<h2 class="section-heading">Connect With Me</h2>
 							<hr class="hr-mine">
-	    					<a class="btn btn-social-icon btn-lg btn-facebook" href="https://www.facebook.com/tyler.ericj" target="_blank">
+	    					<a class="btn btn-social-icon btn-lg btn-facebook" href="https://www.facebook.com/tyler.ericj" target="_blank" onclick="trackOutboundLink('http://www.facebook.com/tyler.ericj'); return false;">
 	    						<span class="fa fa-facebook"></span>
 	    					</a>
-							<a class="btn btn-social-icon btn-lg btn-twitter" href="https://twitter.com/ejtyler" target="_blank">
+							<a class="btn btn-social-icon btn-lg btn-twitter" href="https://twitter.com/ejtyler" target="_blank" onclick="trackOutboundLink('http://www.twitter.com/ejtyler'); return false;">
 	    						<span class="fa fa-twitter"></span>
 	    					</a>
-	    					<a class="btn btn-social-icon btn-lg btn-linkedin" href="https://www.linkedin.com/in/ericjtyler" target="_blank">
+	    					<a class="btn btn-social-icon btn-lg btn-linkedin" href="https://www.linkedin.com/in/ericjtyler" target="_blank" onclick="trackOutboundLink('http://www.linkedin.com/in/ericjtyler'); return false;">
 	    						<span class="fa fa-linkedin"></span>
 	    					</a>
-	    					<a class="btn btn-social-icon btn-lg btn-microsoft" href="mailto:tyler.ericj@gmail.com">
+	    					<a class="btn btn-social-icon btn-lg btn-microsoft" href="mailto:tyler.ericj@gmail.com" onclick="trackOutboundLink('http://www.email.com'); return false;">
 	    						<span class="fa fa-envelope-o"></span>
 	    					</a>
     					</div>
